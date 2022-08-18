@@ -14,37 +14,38 @@ import javax.persistence.EntityManager;
 @Transactional
 public class StudentRepository {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	@Autowired
-	EntityManager em;
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	public Student findById(Long id) {
-		return em.find(Student.class, id);
-	}
+    @Autowired
+    EntityManager em;
 
-	public Student save(Student student) {
+    public Student findById(Long id) {
+        return em.find(Student.class, id);
+    }
 
-		if (student.getId() == null) {
-			em.persist(student);
-		} else {
-			em.merge(student);
-		}
+    public Student save(Student student) {
 
-		return student;
-	}
+        if (student.getId() == null) {
+            em.persist(student);
+        } else {
+            em.merge(student);
+        }
 
-	public void deleteById(Long id) {
-		Student student = findById(id);
-		em.remove(student);
-	}
+        return student;
+    }
 
-	public void saveStudentWithPassport() {
-		Passport passport = new Passport("Z4302");
-		em.persist(passport);
+    public void deleteById(Long id) {
+        Student student = findById(id);
+        em.remove(student);
+    }
 
-		Student student = new Student("Mike");
-		student.setPassport(passport);em.persist(student);
-		
-	}
+    public void saveStudentWithPassport() {
+        Passport passport = new Passport("Z4302");
+        em.persist(passport);
+
+        Student student = new Student("Mike");
+        student.setPassport(passport);
+        em.persist(student);
+
+    }
 }
