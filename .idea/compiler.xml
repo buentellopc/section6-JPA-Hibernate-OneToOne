@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="section6-JPA-Hibernate-OneToOne" />
         <module name="section6" />
         <module name="Section6" />
       </profile>

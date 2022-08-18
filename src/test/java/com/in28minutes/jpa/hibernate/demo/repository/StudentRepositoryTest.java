@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 
@@ -30,6 +31,7 @@ public class StudentRepositoryTest {
 	@Autowired
 	EntityManager em;
 
+	@Transactional
 	@Test
 	public void retrieveStudentAndPassportDetails() {
 		Student student = em.find(Student.class, 20001L);
