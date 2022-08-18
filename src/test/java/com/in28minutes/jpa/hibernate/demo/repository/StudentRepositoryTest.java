@@ -43,8 +43,6 @@ public class StudentRepositoryTest {
     }
 
 
-
-
     @Transactional
     @Test
     public void retrieveStudentAndPassportDetails() {
@@ -52,6 +50,14 @@ public class StudentRepositoryTest {
         logger.info("student -> {}", student);
         logger.info("passport -> {}", student.getPassport());
 
+    }
+
+//    @Transactional
+    @Test
+    public void retrievePassportAndStudentDetails(){
+        Passport passport = em.find(Passport.class, 40002L);
+        logger.info("passport -> {}", passport);
+        logger.info("student retrieved using passport instance -> {}", passport.getStudent());
     }
 
 
