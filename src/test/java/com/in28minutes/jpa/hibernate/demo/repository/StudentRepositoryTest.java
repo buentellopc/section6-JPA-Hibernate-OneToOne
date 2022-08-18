@@ -23,22 +23,36 @@ import static org.junit.Assert.assertNull;
 @SpringBootTest(classes = DemoApplication.class)
 public class StudentRepositoryTest {
 
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	StudentRepository repository;
+    @Autowired
+    StudentRepository repository;
 
-	@Autowired
-	EntityManager em;
+    @Autowired
+    EntityManager em;
 
-	@Transactional
-	@Test
-	public void retrieveStudentAndPassportDetails() {
-		Student student = em.find(Student.class, 20001L);
-		logger.info("student -> {}", student);
-		logger.info("passport -> {}", student.getPassport());
+    //	Session & Session Factory
+//	EntityManager & Persistence Context
+//	Transaction
 
-	}
+
+
+    @Test
+    public void someTest() {
+        repository.understandPersistenceContext();
+    }
+
+
+
+
+    @Transactional
+    @Test
+    public void retrieveStudentAndPassportDetails() {
+        Student student = em.find(Student.class, 20001L);
+        logger.info("student -> {}", student);
+        logger.info("passport -> {}", student.getPassport());
+
+    }
 
 
 }

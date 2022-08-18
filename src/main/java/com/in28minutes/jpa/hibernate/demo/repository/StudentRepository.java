@@ -48,4 +48,22 @@ public class StudentRepository {
         em.persist(student);
 
     }
+
+    public void understandPersistenceContext() {
+        //    Database Operation 1 - Retrieve student
+        Student student = em.find(Student.class, 20001L);
+//        Persistence Context (student)
+
+//    Database Operation 2 - Retrieve passport
+        Passport passport = student.getPassport();
+//        Persistence Context (student, passport)
+
+//    Database Operation 3 - Update student
+        student.setName("Benzema");
+//        Persistence Context (student, passport++)
+
+//    Database Operation 4 - Update passport
+        passport.setNumber("123RealMadrid");
+//        Persistence Context (student++, passport++)
+    }
 }
